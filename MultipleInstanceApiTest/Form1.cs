@@ -13,17 +13,13 @@ using RestSharp;
 namespace MultipleInstanceApiTest
 {
 
-
     public partial class Form1 : Form
     {
-        private readonly RestClient _client;
-
-
+        private RestClient _client;
 
         public Form1()
         {
-            InitializeComponent();
-            _client = new RestClient(txtURL.Text);
+            InitializeComponent();           
         }
 
         List<string> AssetId = new List<string>();
@@ -36,6 +32,9 @@ namespace MultipleInstanceApiTest
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Clear();
+            _client = new RestClient(txtURL.Text);
+            
             for (int i = 0; i < Convert.ToInt32(txtInstances.Text); i++)
             {
                 var thread = new Thread(new ParameterizedThreadStart(CallAPIService));
@@ -113,6 +112,11 @@ namespace MultipleInstanceApiTest
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void Clear()
         {
             richTextBox1.Clear();
             AssetId.Clear();

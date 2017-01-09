@@ -50,6 +50,7 @@
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(329, 20);
             this.txtURL.TabIndex = 0;
+            this.txtURL.Text = "http://api-ondemand-tools-dev.turner.com";
             // 
             // txtInstances
             // 
